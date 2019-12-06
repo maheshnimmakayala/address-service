@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools { 
         maven 'Maven'
-        jdk 'Java'
+        jdk 'JAVA'
   }
   stages {
     stage('Clone repository') {
@@ -26,9 +26,9 @@ pipeline {
    
     stage('push image to ECR'){
       steps {
-       withDockerRegistry(credentialsId: 'ecr:us-east-1:aws-credentials', url: 'http://508607970941.dkr.ecr.us-east-1.amazonaws.com/address-service:latest') {
-          sh 'docker tag address-service:latest 508607970941.dkr.ecr.us-east-1.amazonaws.com/address-service:latest'
-          sh 'docker push 508607970941.dkr.ecr.us-east-1.amazonaws.com/address-service:latest'
+       withDockerRegistry(credentialsId: 'ecr:us-east-1:aws-credentials', url: 'http://650408071817.dkr.ecr.us-east-1.amazonaws.com/address-service:latest') {
+          sh 'docker tag address-service:latest 650408071817.dkr.ecr.us-east-1.amazonaws.com/address-service:latest'
+          sh 'docker push 650408071817.dkr.ecr.us-east-1.amazonaws.com/address-service:latest'
         } 
       }
     }
